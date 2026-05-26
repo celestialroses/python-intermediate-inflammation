@@ -16,7 +16,7 @@ import pytest
         # pass array with the values
         # definition of the parameters
         [
-            ([ [0, 0], [0, 0], [0, 0] ], [0, 0]),   #expected inputs and results?
+            ([ [0, 0], [0, 0], [0, 0] ], [0, 0]),   #expected test inputs and results
             ([ [1, 2], [3, 4], [5, 6] ], [3, 4]),
             # (np.zeros(3,5)),np.zeros(5)) # does the same as line with all zeros (5 zeros in data structure with 3 times 5)
         ]
@@ -36,6 +36,28 @@ def test_daily_mean_string():
         
 
 ##############################################################
+# @pytest.mark.parametrize(
+#         "test_input, test_result",
+#         [
+#             ([[1, 2], [3, 4], [5, 6]], [5, 6]),
+#             ([[1, 2, -9], [-3, 4, -2], [-1, 5, -6]], [1, 5, -2]),[]
+#         ]
+# )
+
+# def test_daily_max(test_input,test_result):
+#     '''Test that max function works for bot positive and negative integers'''
+#     npt.assert_array_equal(daily_max(test_input),test_result)
+
+@pytest.mark.parametrize(
+        "test_input, test_result",
+        [
+            ([[1, 2], [3, 4], [5, 6]], [5, 6]),
+            ([[1, 2, -9], [-3, 4, -2], [-1, 5, -6]], [1, 5, -2]),
+        ])
+
+def test_daily_max(test_input, test_result):
+    """Test that max function works for an array of positive and negative integers."""
+    npt.assert_array_equal(daily_max(test_input), test_result)
 
 def test_daily_max_string():
     ''' Test for TypeError when parsing strings '''
@@ -46,19 +68,6 @@ def test_daily_max_string():
 def test_daily_max_integers():
     """Test that the max function works for an array of positive and negative integers.
     """
-    # # test_input = np.array([[1, 2, -9], [-3, 4, -2], [-1, 5, -6]])
-    # # test_result = np.array([1, 5, -2])  
-    # #  
-    # # test_input = np.array([[1, 2, -8],
-    # #                        [3, 4, -1],
-    # #                        [5, 6, -2]])
-    
-    # # test_result = np.array([5, 6, -3])
-
-    # test_input = np.array([[1, 2, -9], [-3, 4, -2], [-1, 5, -6]])
-    # test_result = np.array([5, 6, -3], [-3, 4, -2], [-1, 5, -6]])              # update test_output accordingly
-
-    # npt.assert_array_equal(daily_max(test_input), test_result)
 
     test_input = np.array([
         [1, 2, -9],
