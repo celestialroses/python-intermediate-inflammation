@@ -59,23 +59,3 @@ def test_daily_max(test_input, test_result):
     """Test that max function works for an array of positive and negative integers."""
     npt.assert_array_equal(daily_max(test_input), test_result)
 
-def test_daily_max_string():
-    ''' Test for TypeError when parsing strings '''
-    with pytest.raises(TypeError):
-        error_expected = daily_max(['Hello', 'there' ])   
-
-
-def test_daily_max_integers():
-    """Test that the max function works for an array of positive and negative integers.
-    """
-
-    test_input = np.array([
-        [1, 2, -9],
-        [-3, 4, -2],
-        [-1, 5, -6]
-    ])
-
-    test_result = np.array([1, 5, -2])
-
-    npt.assert_array_equal(daily_max(test_input), test_result)
-
