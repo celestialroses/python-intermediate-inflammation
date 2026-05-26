@@ -28,7 +28,7 @@ def daily_mean(data:np.array) -> np.array:
     :param data: a 2d data array with inflammation data (each row consists of measurment for a single patient across all days)
     :return: an array of mean values of measurements for each day
     """    
-    return np.mean(data, axis=0)
+    return np.mean(data, axis=0) 
 
 
 def daily_max(data: np.ndarray) -> np.ndarray:
@@ -46,5 +46,5 @@ def daily_min(data: np.ndarray) -> np.ndarray:
    :param data: A 2D data array with inflammation data (each row contains measurements for a single patient across all days).
    :return: An array of minimum values of measurements for each day.
    """
-   return np.min(data, axis=0)
+   return np.min(data, axis=0)#axis =1, is the introduced bug
 
