@@ -14,41 +14,20 @@ import pytest
 
         '''test_input, test_result''',
         # pass array with the values
+        # definition of the parameters
         [
             ([ [0, 0], [0, 0], [0, 0] ], [0, 0]),   #expected inputs and results?
             ([ [1, 2], [3, 4], [5, 6] ], [3, 4]),
+            # (np.zeros(3,5)),np.zeros(5)) # does the same as line with all zeros (5 zeros in data structure with 3 times 5)
         ]
 )
         
-
 
 def test_daily_mean(test_input, test_result):
     '''Test that mean function works for both zeros and integers'''
     npt.assert_array_equal(daily_mean(test_input), test_result) # this so far is just to run it
 
-# def test_daily_mean_zeros():
-#     """Test that mean function works for an array of zeros."""
-    
 
-#     test_input = np.array([[0, 0],
-#                            [0, 0],
-#                            [0, 0]])
-#     test_result = np.array([0, 0])
-
-#     # Need to use Numpy testing functions to compare arrays
-#     npt.assert_array_equal(daily_mean(test_input), test_result)
-
-
-# def test_daily_mean_integers():
-#     """Test that mean function works for an array of positive integers."""
-
-#     test_input = np.array([[1, 2],
-#                            [3, 4],
-#                            [5, 6]])
-#     test_result = np.array([3, 4])
-
-#     # Need to use Numpy testing functions to compare arrays
-#     npt.assert_array_equal(daily_mean(test_input), test_result)
 
 def test_daily_mean_string():
     '''Test for TypeError when parsing strings'''
